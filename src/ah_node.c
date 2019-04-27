@@ -1,11 +1,15 @@
-/*
- * ah_node.c
- *
- *  Created on: 27 abr. 2019
- *      Author: nicolas
+/**
+ ============================================================================
+ Name        : ahNN.c
+ Author      : Nicolas Mendez
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
  */
+#include <ah_node.h>
 
-void ah_node_init( void )
+void ah_node_init( t_node * node )
 {
 
 }

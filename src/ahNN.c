@@ -3,8 +3,8 @@
  Name        : ahNN.c
  Author      : Nicolas Mendez
  Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Copyright   :
+ Description :
  ============================================================================
  */
 
@@ -13,6 +13,8 @@
 #include <ah_node.h>
 
 int main(void) {
-	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
-	return EXIT_SUCCESS;
+	t_node n1;
+	float we[3] = {1.3,2.4,3.5};
+	int re = ah_node_init( &n1, 3000, 1.2345, we );
+	return re;
 }

@@ -18,15 +18,19 @@
  *	@param we weight vector
  *
  */
-int ah_node_init( t_node * node, int ni, float bi, float we[] )
+#include <ah_node.h>
+
+int ah_node_init( t_node * node, int ni )
 {
-	int retErr = 1;
-	if ( ni < MAX_INPUTS_NODE )
+	int errVal = 1;
+	if ( ni < MAX_INPUT )
 	{
-		node->_b = bi;
 		node->_o = 0;
-		memcpy(node->_w,we,sizeof(float)*ni);
-		retErr = 0;
+
+		memset(node->_w,0,ni);
+		memset(node->_i,0,ni);
+
+		errVal = 0;
 	}
-	return retErr;
+	return errVal;
 }

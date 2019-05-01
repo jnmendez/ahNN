@@ -10,11 +10,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <ah_node.h>
+#include <ah_model.h>
+
 
 int main(void) {
-	t_node n1;
-	float we[3] = {1.3,2.4,3.5};
-	int re = ah_node_init( &n1, 3000, 1.2345, we );
-	return re;
+	int re;
+	t_model * myModel = malloc(sizeof(t_model));
+	re = ah_model_init( myModel );
+	re = ah_model_add_input_layer(myModel,128,13);
+	re = ah_model_add_layer(myModel,64);
+	re = ah_model_add_layer(myModel,32);
+	re = ah_model_add_layer(myModel,3);
+
+	printf("%d",re);
+	return 0;
 }

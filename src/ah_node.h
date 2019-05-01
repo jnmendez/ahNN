@@ -1,18 +1,17 @@
-#ifndef _ah_node_h_
-#define _ah_node_h_
+#ifndef AH_NODE_H_
+#define AH_NODE_H_
 
 /** Maximum  number of nodes in a layer */
-#define MAX_INPUTS_NODE 2048
+#define MAX_INPUT	256
 
 /**
  * Node structure
  */
 typedef struct
 {
-	float _b;					/**< BIAS 			*/
-	float _i[MAX_INPUTS_NODE];	/**< INPUT  VECTOR	*/
-	float _w[MAX_INPUTS_NODE];	/**< WEIGHT VECTOR 	*/
-	float _o;					/**< OUTPUT 		*/
+	float _i[MAX_INPUT];			/**< INPUT  VECTOR	*/
+	float _w[MAX_INPUT];			/**< WEIGHT VECTOR 	*/
+	float _o;						/**< OUTPUT 		*/
 }t_node;
 
 /**
@@ -22,7 +21,7 @@ typedef struct
  *	@param bi bias
  *	@param we weight vector
  */
-int ah_node_init( t_node * node, int ni, float bi, float we[] );
+int ah_node_init( t_node * node, int ni );
 
 
 #endif

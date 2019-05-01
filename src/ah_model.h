@@ -32,7 +32,8 @@ model.add(Dense(3, activation='linear'))
 */
 
 int ah_model_init( t_model * model );
-int ah_model_add_input_layer ( t_model * model, int nn, int ni );
-int ah_model_add_layer ( t_model * model, int nn );
+int ah_model_add_input_layer ( t_model * model, int nn, int ni, float (*act)(float) );
+int ah_model_add_layer ( t_model * model, int nn, float (*act)(float) );
+void ah_model_calc( t_model * model );
 
 #endif /* AH_MODEL_H_ */

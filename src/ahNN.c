@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ah_activation_f.h>
 #include <ah_model.h>
 
 
@@ -17,10 +18,12 @@ int main(void) {
 	int re;
 	t_model * myModel = malloc(sizeof(t_model));
 	re = ah_model_init( myModel );
-	re = ah_model_add_input_layer(myModel,128,13);
-	re = ah_model_add_layer(myModel,64);
-	re = ah_model_add_layer(myModel,32);
-	re = ah_model_add_layer(myModel,3);
+	re = ah_model_add_input_layer(myModel,128,13,&ah_linear);
+	re = ah_model_add_layer(myModel,64,&ah_sigmoid);
+	re = ah_model_add_layer(myModel,32,&ah_sigmoid);
+	re = ah_model_add_layer(myModel,3,&ah_linear);
+
+	ah_model_calc(myModel);
 
 	printf("%d",re);
 	return 0;

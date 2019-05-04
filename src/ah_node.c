@@ -35,7 +35,7 @@ int ah_node_init( t_node * node, int ni )
 	return errVal;
 }
 
-float ah_node_prediction( t_node * node, float (*act)(float)  )
+void ah_node_prediction( t_node * node, float (*act)(float)  )
 {
 	for ( int i = 0; i < node->_ni; i++ )
 	{
@@ -48,6 +48,11 @@ float ah_node_prediction( t_node * node, float (*act)(float)  )
 void ah_node_set_input( t_node * node, float inputs[] )
 {
 	memcpy(node->_x,inputs,sizeof(float)*node->_ni);
+}
+
+void ah_node_set_weight( t_node * node, float weight[] )
+{
+	memcpy(node->_w,weight,sizeof(float)*node->_ni);
 }
 
 float ah_node_get_output( t_node * node  )

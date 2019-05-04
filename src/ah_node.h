@@ -24,7 +24,8 @@ typedef struct
  */
 int   ah_node_init		( t_node * node, int ni );
 void  ah_node_set_input	( t_node * node, float inputs[] );
-float ah_node_prediction( t_node * node, float (*act)(float)  );
+void  ah_node_set_weight( t_node * node, float weight[] );
+void  ah_node_prediction( t_node * node, float (*act)(float)  );
 float ah_node_get_output( t_node * node  );
 
 

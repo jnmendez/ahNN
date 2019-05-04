@@ -29,7 +29,7 @@ typedef struct
  *	@param nn number of nodes
  */
 int ah_layer_init( t_layer * ly, int nn, int ni, float (*act)(float) );
-void ah_layer_calc( t_layer * ly );
+void ah_layer_prediction( t_layer * ly );
 
 
 #endif /* AH_LAYER_H_ */

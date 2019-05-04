@@ -35,11 +35,11 @@ int ah_node_init( t_node * node, int ni )
 	return errVal;
 }
 
-float ah_node_calc(t_node * node, float (*act)(float)  )
+float ah_node_prediction(t_node * node, float (*act)(float)  )
 {
 	for ( int i = 0; i < node->_ni; i++ )
 	{
 		node->_o = node->_o + (node->_w[i]*node->_x[i]);
 	}
-	act( node->_o + node->_b );
+	node->_o = act( node->_o + node->_b );
 }

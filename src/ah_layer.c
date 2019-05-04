@@ -31,10 +31,10 @@ int ah_layer_init( t_layer * ly, int nn, int ni, float (*act)(float) )
 /**
  *
  */
-void ah_layer_calc( t_layer * ly )
+void ah_layer_prediction( t_layer * ly )
 {
 	for ( int i = 0; i < ly->_nn; i++ )
 	{
-		ah_node_calc( &ly->_node[i], ly->_act );
+		ah_node_prediction( &ly->_node[i], ly->_act );
 	}
 }

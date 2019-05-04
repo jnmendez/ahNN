@@ -36,10 +36,15 @@ int ah_model_add_layer ( t_model * model, int nn, float (*act)(float)  )
 	return errVal;
 }
 
-void ah_model_calc( t_model * model )
+void ah_model_prediction( t_model * model, float * in[], float * out[] )
 {
+	/* In is the input for the first layer.   */
+	/* Out is the output for last layer       */
+	/* For hidden layer in and out have to be */
+	/* calculated                             */
+
 	for ( int i = 0; i < model->_nl; i++ )
 	{
-		ah_layer_calc(&model->_layer[i]);
+		ah_layer_prediction(&model->_layer[i] );
 	}
 }

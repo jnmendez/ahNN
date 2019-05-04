@@ -22,9 +22,10 @@ typedef struct
  *	@param node pointer to node
  *	@param ni number of inputs
  */
-int ah_node_init( t_node * node, int ni );
-
+int   ah_node_init		( t_node * node, int ni );
+void  ah_node_set_input	( t_node * node, float inputs[] );
 float ah_node_prediction( t_node * node, float (*act)(float)  );
+float ah_node_get_output( t_node * node  );
 
 
 #endif

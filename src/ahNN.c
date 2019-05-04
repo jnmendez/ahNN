@@ -26,7 +26,7 @@ int main(void) {
 	re = ah_model_add_layer(myModel,32,&ah_sigmoid);
 	re = ah_model_add_layer(myModel,3,&ah_linear);
 
-	ah_model_prediction(myModel,&inData,&outData);
+	ah_model_prediction(myModel,inData,&outData);
 
 	printf("%d",re);
 	return 0;

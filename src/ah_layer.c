@@ -38,3 +38,19 @@ void ah_layer_prediction( t_layer * ly )
 		ah_node_prediction( &ly->_node[i], ly->_act );
 	}
 }
+
+void ah_layer_set_input( t_layer * ly, float inputs[] )
+{
+	for ( int i = 0; i < ly->_nn; i++ )
+	{
+		ah_node_set_input( &ly->_node[i], inputs );
+	}
+}
+
+void ah_layer_get_output( t_layer * ly, float * output[] )
+{
+	for ( int i = 0; i < ly->_nn; i++ )
+	{
+		*output[i] = ah_node_get_output( &ly->_node[i] );
+	}
+}

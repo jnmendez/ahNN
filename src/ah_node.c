@@ -35,11 +35,22 @@ int ah_node_init( t_node * node, int ni )
 	return errVal;
 }
 
-float ah_node_prediction(t_node * node, float (*act)(float)  )
+float ah_node_prediction( t_node * node, float (*act)(float)  )
 {
 	for ( int i = 0; i < node->_ni; i++ )
 	{
 		node->_o = node->_o + (node->_w[i]*node->_x[i]);
 	}
 	node->_o = act( node->_o + node->_b );
+}
+
+
+void ah_node_set_input( t_node * node, float inputs[] )
+{
+	memcpy(node->_x,inputs,sizeof(float)*node->_ni);
+}
+
+float ah_node_get_output( t_node * node  )
+{
+	return node->_o;
 }

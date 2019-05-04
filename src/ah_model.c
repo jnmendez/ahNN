@@ -43,8 +43,15 @@ void ah_model_prediction( t_model * model, float in[], float * out[] )
 	/* For hidden layer in and out have to be */
 	/* calculated                             */
 
-	for ( int i = 0; i < model->_nl; i++ )
+	ah_layer_set_input(&model->_layer[0],in);
+	ah_layer_prediction( &model->_layer[0] );
+
+	for ( int i = 1; i < model->_nl-1; i++ )
 	{
+		//ah_layer_transfer_x( &model->_layer[i] );
 		ah_layer_prediction( &model->_layer[i] );
 	}
+
+	ah_layer_prediction( &model->_layer[model->_nl] );
+	ah_layer_get_output( &model->_layer[model->_nl], out );
 }

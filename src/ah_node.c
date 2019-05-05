@@ -7,7 +7,6 @@
  @Description :
  ============================================================================
  */
-#include <string.h>
 #include <ah_node.h>
 
 /*
@@ -18,6 +17,9 @@
  *	@param we weight vector
  *
  */
+#include <stdio.h>
+#include <stdlib.h>
+
 #include <ah_node.h>
 
 int ah_node_init( t_node * node, int ni )

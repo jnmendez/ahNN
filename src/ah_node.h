@@ -28,5 +28,4 @@ void  ah_node_set_weight( t_node * node, float weight[] );
 void  ah_node_prediction( t_node * node, float (*act)(float)  );
 float ah_node_get_output( t_node * node  );
 
-
 #endif

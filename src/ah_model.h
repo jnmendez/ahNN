@@ -17,8 +17,9 @@
  */
 typedef struct
 {
-	int _nl;						/**< NUMBER OF LAYERS 	*/
+	int 	_nl;					/**< NUMBER OF LAYERS 	*/
 	t_layer _layer[MAX_LAYERS];		/**< MAX NUM NODES		*/
+	float 	_transfer[256];
 }t_model;
 
 
@@ -31,9 +32,10 @@ model.add(Dense(32, activation='sigmoid'))
 model.add(Dense(3, activation='linear'))
 */
 
-int ah_model_init( t_model * model );
-int ah_model_add_input_layer ( t_model * model, int nn, int ni, float (*act)(float) );
-int ah_model_add_layer ( t_model * model, int nn, float (*act)(float) );
-void ah_model_prediction( t_model * model, float in[],  float * out[]);
+int  ah_model_init				( t_model * model );
+int  ah_model_add_input_layer	( t_model * model, int nn, int ni, float (*act)(float) );
+int  ah_model_add_layer 		( t_model * model, int nn, float (*act)(float) );
+void ah_model_prediction		( t_model * model, float in[],  float out[]);
+int ah_model_set_weight			( t_model * model, int ly ,float w[]);
 
 #endif /* AH_MODEL_H_ */

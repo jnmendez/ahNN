@@ -11,12 +11,13 @@
  *	@param node pointer to layer
  *	@param nn number of nodes
  */
-int ah_layer_init( t_layer * ly, int nn, int ni, float (*act)(float) )
+int ah_layer_init( t_layer * ly, int id, int nn, int ni, float (*act)(float) )
 {
 	int errVal = 1;
 	if ( nn < MAX_NODE )
 	{
 		ly->_nn = nn;
+		ly->_id = id;
 		ly->_ni = ni;
 		ly->_act = act;
 		for ( int i = 0; i < nn; i++ )
@@ -55,10 +56,10 @@ void ah_layer_set_weight( t_layer * ly, float weight[] )
 	}
 }
 
-void ah_layer_get_output( t_layer * ly, float * output[] )
+void ah_layer_get_output( t_layer * ly, float output[] )
 {
 	for ( int i = 0; i < ly->_nn; i++ )
 	{
-		*output[i] = ah_node_get_output( &ly->_node[i] );
+		output[i] = ah_node_get_output( &ly->_node[i] );
 	}
 }

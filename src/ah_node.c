@@ -7,21 +7,18 @@
  @Description :
  ============================================================================
  */
-#include <ah_node.h>
-
-/*
- *	@brief Initialize node
- *	@param node pointer to node
- *	@param ni number of inputs
- *	@param bi bias
- *	@param we weight vector
- *
- */
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <string.h>
 #include <ah_node.h>
 
+/*
+ * \brief Initialize node
+ * @param node pointer to node structure
+ * @param ni number of inputs
+ * @return 1 in case of error
+ */
 int ah_node_init( t_node * node, int ni )
 {
 	int errVal = 1;
@@ -37,6 +34,11 @@ int ah_node_init( t_node * node, int ni )
 	return errVal;
 }
 
+/*
+ * \brief node prediction
+ * @param node pointer to node structure
+ * @param act pointer to activation function
+ */
 void ah_node_prediction( t_node * node, float (*act)(float)  )
 {
 	for ( int i = 0; i < node->_ni; i++ )
@@ -47,16 +49,31 @@ void ah_node_prediction( t_node * node, float (*act)(float)  )
 }
 
 
+/*
+ * \brief set node inputs
+ * @param node pointer to node structure
+ * @param inputs input vector
+ */
 void ah_node_set_input( t_node * node, float inputs[] )
 {
 	memcpy(node->_x,inputs,sizeof(float)*node->_ni);
 }
 
+/*
+ * \brief set node weight
+ * @param node pointer to node structure
+ * @param weight weight vector
+ */
 void ah_node_set_weight( t_node * node, float weight[] )
 {
 	memcpy(node->_w,weight,sizeof(float)*node->_ni);
 }
 
+/*
+ * \brief return calculated output
+ * @param node pointer to node structure
+ * @return calculated output
+ */
 float ah_node_get_output( t_node * node  )
 {
 	return node->_o;

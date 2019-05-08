@@ -15,6 +15,7 @@
 
 
 int main(void) {
+/*
 	int re;
 	t_model * myModel = malloc(sizeof(t_model));
 	float outData[3];
@@ -37,5 +38,11 @@ int main(void) {
 
 	ah_model_prediction(myModel,inData,outData);
 
+*/
+	activation_f_T1();
+	activation_f_T2();
+	node_T1();
+	node_T2();
+	node_T3();
 	return 0;
 }

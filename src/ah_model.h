@@ -22,20 +22,47 @@ typedef struct
 	float 	_transfer[256];
 }t_model;
 
+/**
+ * \brief Initialize ANN model
+ * @param mod pointer to model structure
+ * @return 
+ */
+int ah_model_init( t_model * mod );
 
-/*# create model
-modelStr="ANN_256L64S32S3L_ADA_MB64_LR001"
-model = Sequential()
-model.add(Dense(256, input_dim=datasetX.shape[1],activation='linear'))
-model.add(Dense(64, activation='sigmoid'))
-model.add(Dense(32, activation='sigmoid'))
-model.add(Dense(3, activation='linear'))
-*/
+/**
+ * \brief Add input layer for a model.
+ * @param model pointer to model structure.
+ * @param nn number of nodes.
+ * @param ni number of inputs.
+ * @param act pointer to activation function.
+ * @return 1 in case of error
+ */
+int ah_model_add_input_layer ( t_model * model, int nn, int ni, float (*act)(float) );
 
-int  ah_model_init				( t_model * model );
-int  ah_model_add_input_layer	( t_model * model, int nn, int ni, float (*act)(float) );
-int  ah_model_add_layer 		( t_model * model, int nn, float (*act)(float) );
-void ah_model_prediction		( t_model * model, float in[],  float out[]);
-int ah_model_set_weight			( t_model * model, int ly ,float w[]);
+/**
+ * \brief Add layer for a model.
+ * @param model pointer to model structure.
+ * @param nn number of nodes.
+ * @param act pointer to activation function.
+ * @return 1 in case of error
+ */
+int ah_model_add_layer ( t_model * model, int nn, float (*act)(float)  );
+
+/**
+ * \brief Calcalute predictions for a set of inputs
+ * @param model pointer to model structure.
+ * @param in input data vector
+ * @param out calculated predictions.vector 
+ */
+void ah_model_prediction( t_model * model, float in[], float out[] );
+
+/**
+ * \brief Set weight for a specific layer
+ * @param model pointer to model structure. 
+ * @param ly layer ID
+ * @param weight weight vector
+ * @return
+ */
+int ah_model_set_weight( t_model * model, int ly ,float weight[]);
 
 #endif /* AH_MODEL_H_ */

@@ -17,15 +17,42 @@ typedef struct
 
 }t_node;
 
-/**_
- *	@brief Initialize node
- *	@param node pointer to node
- *	@param ni number of inputs
+/**
+ * \brief Initialize node
+ * @param node pointer to node structure
+ * @param ni number of inputs
+ * @return 1 in case of error
  */
-int   ah_node_init		( t_node * node, int ni );
-void  ah_node_set_input	( t_node * node, float inputs[] );
-void  ah_node_set_weight( t_node * node, float weight[] );
-void  ah_node_prediction( t_node * node, float (*act)(float)  );
+int ah_node_init( t_node * node, int ni );
+
+/**
+ * \brief node prediction
+ * @param node pointer to node structure
+ * @param act pointer to activation function
+ */
+void ah_node_prediction( t_node * node, float (*act)(float)  );
+
+
+/**
+ * \brief set node inputs
+ * @param node pointer to node structure
+ * @param inputs input vector
+ */
+void ah_node_set_input( t_node * node, float inputs[] );
+
+/**
+ * \brief set node weight
+ * @param node pointer to node structure
+ * @param weight weight vector
+ */
+void ah_node_set_weight( t_node * node, float weight[] );
+
+
+/**
+ * \brief return calculated output
+ * @param node pointer to node structure
+ * @return calculated output
+ */
 float ah_node_get_output( t_node * node  );
 
 #endif

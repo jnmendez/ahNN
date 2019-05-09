@@ -32,7 +32,6 @@ int ah_node_init( t_node * node, int ni );
  */
 void ah_node_prediction( t_node * node, float (*act)(float)  );
 
-
 /**
  * \brief set node inputs
  * @param node pointer to node structure
@@ -47,6 +46,12 @@ void ah_node_set_input( t_node * node, float inputs[] );
  */
 void ah_node_set_weight( t_node * node, float weight[] );
 
+/**
+ * \brief set node bias
+ * @param node pointer to node structure
+ * @param bias value
+ */
+void ah_node_set_bias( t_node * node, float bias );
 
 /**
  * \brief return calculated output

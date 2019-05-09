@@ -28,7 +28,7 @@ int ah_node_init( t_node * node, int ni )
 		node->_ni	= ni;
 		memset(node->_w,0,ni);
 		memset(node->_x,0,ni);
-
+		node->_b 	= 0;
 		errVal = 0;
 	}
 	return errVal;
@@ -67,6 +67,16 @@ void ah_node_set_input( t_node * node, float inputs[] )
 void ah_node_set_weight( t_node * node, float weight[] )
 {
 	memcpy(node->_w,weight,sizeof(float)*node->_ni);
+}
+
+/*
+ * \brief set node bias
+ * @param node pointer to node structure
+ * @param bias value
+ */
+void ah_node_set_bias( t_node * node, float bias )
+{
+	node->_b = bias;
 }
 
 /*

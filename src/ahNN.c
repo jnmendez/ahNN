@@ -44,5 +44,9 @@ int main(void) {
 	node_T1();
 	node_T2();
 	node_T3();
+	node_T4();
+	node_T5();
+	node_T6();
+	
 	return 0;
 }

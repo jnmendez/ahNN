@@ -51,5 +51,7 @@ int main(void) {
 	layer_T2();
 	layer_T3();
 	layer_T4();
+	model_T1();
+	model_T2();
 	return 0;
 }

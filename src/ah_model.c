@@ -98,3 +98,16 @@ int ah_model_set_weight( t_model * model, int ly ,float weight[])
 	ah_layer_set_weight(&model->_layer[ly], weight);
 	return 0;
 }
+
+/*
+ * \brief Set bias for a specific layer
+ * @param model pointer to model structure.
+ * @param ly layer ID
+ * @param bias bias vector
+ * @return
+ */
+int ah_model_set_bias( t_model * model, int ly ,float bias[])
+{
+	ah_layer_set_bias(&model->_layer[ly], bias);
+	return 0;
+}

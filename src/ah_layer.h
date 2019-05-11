@@ -56,6 +56,13 @@ void ah_layer_set_input( t_layer * ly, float inputs[] );
 void ah_layer_set_weight( t_layer * ly, float weight[] );
 
 /**
+ * \brief set layer bias
+ * @param ly pointer to layer structure 
+ * @param bias bias vector
+ */
+void ah_layer_set_bias( t_layer * ly, float bias[] );
+
+/**
  * \brief get layer output
  * @param ly pointer to layer structure
  * @param output output vector

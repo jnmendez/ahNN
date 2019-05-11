@@ -19,7 +19,7 @@
 int ah_layer_init( t_layer * ly, int id, int nn, int ni, float (*act)(float) )
 {
 	int errVal = 1;
-	if ( nn < MAX_NODE )
+	if (( nn > 0 ) && ( nn <= MAX_NODE ))
 	{
 		ly->_nn = nn;
 		ly->_id = id;
@@ -72,6 +72,19 @@ void ah_layer_set_weight( t_layer * ly, float weight[] )
 	}
 }
 
+
+/**
+ * \brief set layer bias
+ * @param ly pointer to layer structure 
+ * @param bias bias vector
+ */
+void ah_layer_set_bias( t_layer * ly, float bias[] )
+{
+	for ( int i = 0; i < ly->_nn; i++ )
+	{
+		ah_node_set_bias( &ly->_node[i], bias[i] );
+	}
+}
 
 /**
  * \brief get layer output

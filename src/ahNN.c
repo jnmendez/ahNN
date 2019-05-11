@@ -47,6 +47,9 @@ int main(void) {
 	node_T4();
 	node_T5();
 	node_T6();
-	
+	layer_T1();
+	layer_T2();
+	layer_T3();
+	layer_T4();
 	return 0;
 }

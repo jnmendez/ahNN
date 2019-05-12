@@ -64,11 +64,11 @@ void ah_layer_set_input( t_layer * ly, float inputs[] )
  * @param ly pointer to layer structure 
  * @param weight weight vector
  */
-void ah_layer_set_weight( t_layer * ly, float weight[] )
+void ah_layer_set_weight( t_layer * ly, float * weight )
 {
 	for ( int i = 0; i < ly->_nn; i++ )
 	{
-		ah_node_set_weight( &ly->_node[i], weight );
+		ah_node_set_weight( &ly->_node[i], weight+(i*ly->_ni) );
 	}
 }
 

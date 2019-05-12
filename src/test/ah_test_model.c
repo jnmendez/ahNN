@@ -33,7 +33,6 @@ t_model * model = &test_model;
 
 void model_T1( void )
 {
-	int result ;
 
 	ah_model_init( model );
 	
@@ -49,7 +48,6 @@ void model_T1( void )
 
 void model_T2( void )
 {
-	int result ;
 	// IN [ 0.39232655 -1.02954193] OUT [0.519832   0.25513762]
 	// BIAS1 -0.183314, -0.209205
 	// BIAS2 -0.333418, -0.309407
@@ -66,19 +64,40 @@ void model_T2( void )
 
 	float input2[2] 	= {(float)0.39232655,  (float)-1.02954193};
 
-	float weight1[2] 	= {(float)0.377540669, (float)0.010986943};
-	float weight2[2] 	= {(float)0.377540669, (float)0.010986943};
+	float weight1[2][2] = {{(float)0.725246, (float)-0.22734},
+						   {(float)0.777699, (float)0.050874}};
+
+	float weight2[2][2] = {{(float)0.125651, (float)0.664594},
+						   {(float)-0.331226, (float)-1.113510}};
+
 
 	float bias1[2] 		= {(float)-0.183314, (float)-0.209205};
 	float bias2[2] 		= {(float)-0.333418, (float)-0.309407};
 
 	float output2[2]	= {(float)0.0, (float)0.0};
 
-	ah_model_set_weight(model, 0, weight1);
-	ah_model_set_weight(model, 1, weight2);
+	ah_model_set_weight(model, 0, weight1[0]);
+	ah_model_set_weight(model, 1, weight2[0]);
 	ah_model_set_bias(model, 0, bias1);
 	ah_model_set_bias(model, 1, bias2);
 
 	ah_model_prediction( model, input2, output2 );
-	printf("MO %f - %f \n", output2[0],output2[1]);
+	if ( output2[0] == 0.519832 )
+	{
+		printf("MODEL_PRED_T1 : %f - %f : PASS\n", output2[0], 0.519832);
+	}
+	else
+	{
+		printf("MODEL_PRED_T1 : %f - %f : FAIL\n", output2[0], 0.519832);
+	}
+
+	if ( output2[1] == 0.255138 )
+	{
+		printf("MODEL_PRED_T1 : %f - %f : PASS\n", output2[1], 0.255138);
+	}
+	else
+	{
+		printf("MODEL_PRED_T1 : %f - %f : FAIL\n", output2[1], 0.255138);
+	}
+
 }

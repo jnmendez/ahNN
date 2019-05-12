@@ -44,7 +44,7 @@ void ah_node_set_input( t_node * node, float inputs[] );
  * @param node pointer to node structure
  * @param weight weight vector
  */
-void ah_node_set_weight( t_node * node, float weight[] );
+void ah_node_set_weight( t_node * node, float * weight );
 
 /**
  * \brief set node bias

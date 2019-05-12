@@ -93,7 +93,7 @@ void ah_model_prediction( t_model * model, float in[], float out[] )
  * @param weight weight vector
  * @return
  */
-int ah_model_set_weight( t_model * model, int ly ,float weight[])
+int ah_model_set_weight( t_model * model, int ly ,float * weight)
 {
 	ah_layer_set_weight(&model->_layer[ly], weight);
 	return 0;

@@ -130,6 +130,10 @@ void layer_T2( void )
 void layer_T3( void )
 {
 	int result ;
+//	{-2.0, (float)0.119202922},
+//	{-1.5, (float)0.182425524},
+//	{-1.0, (float)0.268941421},
+//	{-0.5, (float)0.377540669},
 
 	result = ah_layer_init( layer, 0, 2, 2, &ah_sigmoid );
 	
@@ -153,22 +157,22 @@ void layer_T3( void )
 		printf("LAYER_W_T3.2 : %f - %f : FAIL\n", layer->_node[0]._w[1], layerInput[6][1]);			
 	}
 
-	if ( layer->_node[1]._w[0] == layerInput[6][0] ) 
+	if ( layer->_node[1]._w[0] == layerInput[7][0] )
 	{
-		printf("LAYER_W_T3.3 : %f - %f : PASS\n", layer->_node[1]._w[0], layerInput[6][0]);
+		printf("LAYER_W_T3.3 : %f - %f : PASS\n", layer->_node[1]._w[0], layerInput[7][0]);
 	}
 	else
 	{
-		printf("LAYER_W_T3.3 : %f - %f : FAIL\n", layer->_node[1]._w[0], layerInput[6][0]);			
+		printf("LAYER_W_T3.3 : %f - %f : FAIL\n", layer->_node[1]._w[0], layerInput[7][0]);
 	}
 
-	if ( layer->_node[1]._w[1] == layerInput[6][1] ) 
+	if ( layer->_node[1]._w[1] == layerInput[7][1] )
 	{
-		printf("LAYER_W_T3.4 : %f - %f : PASS\n", layer->_node[1]._w[1], layerInput[6][1]);
+		printf("LAYER_W_T3.4 : %f - %f : PASS\n", layer->_node[1]._w[1], layerInput[7][1]);
 	}
 	else
 	{
-		printf("LAYER_W_T3.4 : %f - %f : FAIL\n", layer->_node[1]._w[1], layerInput[6][1]);			
+		printf("LAYER_W_T3.4 : %f - %f : FAIL\n", layer->_node[1]._w[1], layerInput[7][1]);
 	}
 
 }
@@ -177,12 +181,13 @@ void layer_T3( void )
 void layer_T4( void )
 {
 	float input2[2] 	= {(float)0.07585818,  (float)0.006692851};
-	float weight2[2] 	= {(float)0.377540669, (float)0.010986943};
+	float weight2[2][2] = {{(float)0.377540669, (float)0.010986943 },
+							{(float)0.377540669, (float)0.010986943}};
 	float bias2[2] 		= {(float)0.924141820, (float)0.924141820};
 	float output2[2]	= {(float)0.0, (float)0.0};
 	
 	ah_layer_init( layer, 0, 2, 2, &ah_sigmoid );
-	ah_layer_set_weight(layer,weight2);
+	ah_layer_set_weight(layer,weight2[0]);
 	ah_layer_set_input(layer,input2);
 	ah_layer_set_bias(layer, bias2);
 	

@@ -47,6 +47,35 @@ void model_T1( void )
 	}
 }
 
+//#define _TIME_GPC_
+#define _TIME_HOST_
+
+#ifdef _TIME_GPC_
+#include <apex/apexLib.h>
+static SYSTEM_TIME_TYPE ts,te  = 0;
+static SYSTEM_TIME_TYPE avg = 0;
+static SYSTEM_TIME_TYPE aux = 0;
+void readStart(void)
+{
+	RETURN_CODE_TYPE retCode;
+	GET_TIME(&ts, &retCode);
+}
+void computeEnd(void)
+{
+	RETURN_CODE_TYPE retCode;
+	GET_TIME(&te, &retCode);
+	aux = (te-ts);
+/*
+	if (avg)
+		avg = (avg+aux)/2;
+	else
+*/
+	avg = aux/1000;
+}
+
+#endif
+
+
 void model_T2( void )
 {
 	// IN [ 0.39232655 -1.02954193] OUT [0.519832   0.25513762]
@@ -82,16 +111,25 @@ void model_T2( void )
 	ah_model_set_bias(model, 0, bias1);
 	ah_model_set_bias(model, 1, bias2);
 
-
+#ifdef _TIME_HOST_
 	clock_t begin = clock();
-
+#endif
+#ifdef _TIME_GPC_
+	readStart();
+#endif
 	/* here, do your time-consuming job */
 	ah_model_prediction( model, input2, output2 );
+#ifdef _TIME_GPC_
+	computeEnd();
+	printf("PRINT TIME %llu micros\n", avg);
+#endif
 
+#ifdef _TIME_HOST_
 	clock_t end = clock();
 	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-
 	printf("TIME microsec : %lf\n",time_spent*1000000);
+#endif
+
 
 	if ( output2[0] == 0.519832 )
 	{

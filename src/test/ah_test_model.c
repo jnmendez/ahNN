@@ -1,3 +1,4 @@
+#include <time.h>
 #include <stdio.h>
 #include <ah_activation_f.h>
 #include <ah_model.h>
@@ -81,7 +82,17 @@ void model_T2( void )
 	ah_model_set_bias(model, 0, bias1);
 	ah_model_set_bias(model, 1, bias2);
 
+
+	clock_t begin = clock();
+
+	/* here, do your time-consuming job */
 	ah_model_prediction( model, input2, output2 );
+
+	clock_t end = clock();
+	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	printf("TIME microsec : %lf\n",time_spent*1000000);
+
 	if ( output2[0] == 0.519832 )
 	{
 		printf("MODEL_PRED_T1 : %f - %f : PASS\n", output2[0], 0.519832);
@@ -99,5 +110,39 @@ void model_T2( void )
 	{
 		printf("MODEL_PRED_T1 : %f - %f : FAIL\n", output2[1], 0.255138);
 	}
+
+}
+
+void model_T3( void )
+{
+
+	float input3[10] 	= {	(float)0.39232655,
+							(float)-1.02954193,
+							(float)-1.02954193,
+							(float)-1.02954193,
+							(float)-1.02954193,
+							(float)-1.02954193,
+							(float)-1.02954193,
+							(float)-1.02954193,
+							(float)-1.02954193,
+							(float)-1.02954193,
+	};
+	float output3[3]	= {(float)0.0, (float)0.0, (float)0.0};
+
+	ah_model_init( model );
+	ah_model_add_input_layer( model, 250, 10, &ah_sigmoid );
+	ah_model_add_layer(model, 128, &ah_linear);
+	ah_model_add_layer(model, 128, &ah_sigmoid);
+	ah_model_add_layer(model, 3, &ah_linear);
+
+	clock_t begin = clock();
+
+	/* here, do your time-consuming job */
+	ah_model_prediction( model, input3, output3 );
+
+	clock_t end = clock();
+	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	printf("TIME microsec : %lf\n",time_spent*1000000);
 
 }

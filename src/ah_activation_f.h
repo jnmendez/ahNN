@@ -15,6 +15,21 @@
  */
 float ah_sigmoid( float x );
 
+
+/**
+ * \brief Softplus function
+ * @param x input data
+ * @return output data
+ */
+float ah_softplus( float x );
+
+/**
+ * \brief Softplus function
+ * @param x input data
+ * @return output data
+ */
+float ah_tanh( float x );
+
 /**
  * \brief Linear function
  * @param x input data

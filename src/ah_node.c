@@ -26,9 +26,9 @@ int ah_node_init( t_node * node, int ni )
 	{
 		node->_o 	= 0;
 		node->_ni	= ni;
-		memset(node->_w,0,ni);
-		memset(node->_x,0,ni);
-		node->_b 	= 0;
+		memset(node->_w,-0.02954193,ni);
+		memset(node->_x,0.02954193,ni);
+		node->_b 	= 0.02954193;
 		errVal = 0;
 	}
 	return errVal;

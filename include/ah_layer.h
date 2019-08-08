@@ -8,9 +8,9 @@
 #ifndef AH_LAYER_H_
 #define AH_LAYER_H_
 
+#include <ah_model_arc.h>
 #include <ah_node.h>
 
-#define MAX_NODE 256
 
 /**
  * Layer structure

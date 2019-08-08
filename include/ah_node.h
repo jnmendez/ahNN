@@ -1,8 +1,7 @@
 #ifndef AH_NODE_H_
 #define AH_NODE_H_
 
-/** Maximum  number of inputs in for a node */
-#define MAX_INPUT	256
+#include <ah_model_arc.h>
 
 /**
  * Node structure

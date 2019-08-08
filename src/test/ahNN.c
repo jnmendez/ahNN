@@ -13,6 +13,23 @@
 #include <ah_activation_f.h>
 #include <ah_model.h>
 
+t_model * _el_model;
+t_model * _az_model;
+
+extern void activation_f_T1(void);
+extern void activation_f_T2(void);
+extern void node_T1(void);
+extern void node_T2(void);
+extern void node_T3(void);
+extern void node_T4(void);
+extern void node_T5(void);
+extern void node_T6(void);
+extern void layer_T1(void);
+extern void layer_T2(void);
+extern void layer_T3(void);
+extern void layer_T4(void);
+extern void model_T1(void);
+extern void model_T2(void);
 
 int main(void) {
 /*
@@ -53,7 +70,7 @@ int main(void) {
 	layer_T4();
 	model_T1();
 	model_T2();
-	model_T3();
+	/*model_T3();*/
 
 	return 0;
 }

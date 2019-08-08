@@ -8,9 +8,10 @@
 #ifndef AH_MODEL_H_
 #define AH_MODEL_H_
 
+#include <ah_model_arc.h>
+
 #include <ah_layer.h>
 
-#define MAX_LAYERS 10
 
 /**
  * Model structure
@@ -18,8 +19,8 @@
 typedef struct
 {
 	int 	_nl;					/**< NUMBER OF LAYERS 	*/
-	t_layer _layer[MAX_LAYERS];		/**< MAX NUM NODES		*/
-	float 	_transfer[256];
+	t_layer _layer[MAX_LAYERS];		/**< MAX NUM LAYERS		*/
+	float 	_transfer[MAX_INPUT];
 }t_model;
 
 /**

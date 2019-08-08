@@ -6,6 +6,7 @@
  */
 #include <ah_model.h>
 
+
 /*
  * \brief Initialize ANN model
  * @param mod pointer to model structure

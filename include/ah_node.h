@@ -8,8 +8,8 @@
  */
 typedef struct
 {
-	float _x[MAX_INPUT];			/**< INPUT  VECTOR	*/
-	float _w[MAX_INPUT];			/**< WEIGHT VECTOR 	*/
+	float _x[MAX_NODE];			/**< INPUT  VECTOR	*/
+	float _w[MAX_NODE];			/**< WEIGHT VECTOR 	*/
 	float _o;						/**< OUTPUT 		*/
 	float _b;						/**< BIAS			*/
 	int   _ni;						/**< NUM INPUTS 	*/

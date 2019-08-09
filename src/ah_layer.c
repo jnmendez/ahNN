@@ -68,7 +68,7 @@ void ah_layer_set_weight( t_layer * ly, float * weight )
 {
 	for ( int i = 0; i < ly->_nn; i++ )
 	{
-		ah_node_set_weight( &ly->_node[i], weight+(i*ly->_ni) );
+		ah_node_set_weight( &(ly->_node[i]), weight+(i*ly->_ni) );
 	}
 }
 

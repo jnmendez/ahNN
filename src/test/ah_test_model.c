@@ -86,19 +86,17 @@ void model_T2( void )
 	// W1 (0,0): 0.725246, 0.777699,
     //    (1,0): -0.22734, 0.050874
 
-
-	ah_model_init( model );
-	ah_model_add_input_layer( model, 2, 2, &ah_sigmoid );
-
-	ah_model_add_layer(model, 2, &ah_sigmoid);
-
 	float input2[2] 	= {(float)0.39232655,  (float)-1.02954193};
 
-	float weight1[2][2] = {{(float)0.725246, (float)-0.22734},
-						   {(float)0.777699, (float)0.050874}};
+	float weight1[4] = {(float)0.725246,
+						(float)-0.22734,
+						(float)0.777699,
+						(float)0.050874};
 
-	float weight2[2][2] = {{(float)0.125651, (float)0.664594},
-						   {(float)-0.331226, (float)-1.113510}};
+	float weight2[4] = {(float)0.125651,
+						(float)0.664594,
+						(float)-0.331226,
+						(float)-1.113510};
 
 
 	float bias1[2] 		= {(float)-0.183314, (float)-0.209205};
@@ -106,10 +104,15 @@ void model_T2( void )
 
 	float output2[2]	= {(float)0.0, (float)0.0};
 
-	ah_model_set_weight(model, 0, weight1[0]);
-	ah_model_set_weight(model, 1, weight2[0]);
-	ah_model_set_bias(model, 0, bias1);
-	ah_model_set_bias(model, 1, bias2);
+
+	ah_model_init( model );
+	ah_model_add_input_layer( model, 2, 2, &ah_sigmoid );
+	ah_model_set_bias(model, 0, &bias1[0]);
+	ah_model_set_weight(model, 0, &weight1[0]);
+
+	ah_model_add_layer(model, 2, &ah_sigmoid);
+	ah_model_set_bias(model, 1, &bias2[0]);
+	ah_model_set_weight(model, 1, &weight2[0]);
 
 #ifdef _TIME_HOST_
 	clock_t begin = clock();

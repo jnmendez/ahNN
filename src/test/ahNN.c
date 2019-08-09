@@ -14,7 +14,6 @@
 #include <ah_model.h>
 
 t_model * _el_model;
-t_model * _az_model;
 
 extern void activation_f_T1(void);
 extern void activation_f_T2(void);
@@ -30,11 +29,15 @@ extern void layer_T3(void);
 extern void layer_T4(void);
 extern void model_T1(void);
 extern void model_T2(void);
+void _el_init_model(void);
 
 int main(void) {
-/*
+
+	_el_model = malloc(sizeof(t_model));
+
+	/*
 	int re;
-	t_model * myModel = malloc(sizeof(t_model));
+
 	float outData[3];
 	float inData[4] = {1.0,2.0,3.0,4.0};
 	float wData[4] 	= {0.1,0.2,0.3,0.4};
@@ -55,7 +58,7 @@ int main(void) {
 
 	ah_model_prediction(myModel,inData,outData);
 
-*/
+
 	activation_f_T1();
 	activation_f_T2();
 	node_T1();
@@ -68,9 +71,8 @@ int main(void) {
 	layer_T2();
 	layer_T3();
 	layer_T4();
-	model_T1();
-	model_T2();
-	/*model_T3();*/
-
+	model_T1();*/
+	/*model_T2();*/
+	_el_init_model();
 	return 0;
 }

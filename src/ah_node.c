@@ -22,7 +22,7 @@
 int ah_node_init( t_node * node, int ni )
 {
 	int errVal = 1;
-	if ( ni < MAX_INPUT )
+	if ( ni < MAX_NODE)
 	{
 		node->_o 	= 0;
 		node->_ni	= ni;

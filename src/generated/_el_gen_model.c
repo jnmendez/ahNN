@@ -22,17 +22,17 @@ extern float _el_weightLayer_3[];
 /* Input vector */
 float input_el_model[11] =
 {
-(float)0.0/*ioPrediction[0]*/,
-(float)0.0/*ioPrediction[1]*/,
-(float)0.0/*ioPrediction[2]*/,
-(float)0.0/*ioPrediction[3]*/,
-(float)0.0/*ioPrediction[4]*/,
-(float)0.0/*ioPrediction[5]*/,
-(float)0.0/*ioPrediction[6]*/,
-(float)0.0/*ioPrediction[7]*/,
-(float)0.0/*ioPrediction[8]*/,
-(float)0.0/*ioPrediction[9]*/,
-(float)0.0/*ioPrediction[10]*/,
+(float)1.3158784417171006,
+(float)-0.9197654643113794,
+(float)-1.2151285289169167,
+(float)0.5573492988234939,
+(float)1.5595829326785589,
+(float)-0.3690367899810003,
+(float)1.6824180382200358,
+(float)-0.8817904817800104,
+(float)-0.630719717763861,
+(float)-1.0354059862690137,
+(float)-0.6596852246658311,
 };
 
 /* Output vector */
@@ -44,17 +44,18 @@ void _el_init_model( void )
      ah_model_init( _el_model );
 
      /* Setup model */
-     ah_model_add_input_layer( _el_model, 70, 11, &ah_sigmoid );
+     ah_model_add_input_layer( _el_model, 32, 11, &ah_sigmoid );
      ah_model_set_bias(_el_model, 0, &_el_biasLayer_1[0]);
      ah_model_set_weight(_el_model, 0, &_el_weightLayer_1[0]);
 	
-     ah_model_add_layer(_el_model, 50, &ah_sigmoid);
+     ah_model_add_layer(_el_model, 16, &ah_sigmoid);
      ah_model_set_bias(_el_model, 1, &_el_biasLayer_2[0]);
      ah_model_set_weight(_el_model, 1, &_el_weightLayer_2[0]);
-     ah_model_add_layer(_el_model, 1, &ah_softplus);
+     ah_model_add_layer(_el_model, 1, &ah_sigmoid);
      ah_model_set_bias(_el_model, 2, &_el_biasLayer_3[0]);
      ah_model_set_weight(_el_model, 2, &_el_weightLayer_3[0]);
 
+#define  _TIME_HOST_ 1
 	
 #ifdef _TIME_HOST_
      clock_t begin = clock();
@@ -64,6 +65,7 @@ void _el_init_model( void )
 #endif
      /* here, do your time-consuming job */
      ah_model_prediction( _el_model, input_el_model, output_el_model );
+     /*printf("output_el_model : %f %f\n",output_el_model[0],0.07364398);*/
 #ifdef _TIME_GPC_
      computeEnd();
      printf("PRINT TIME %llu micros\n", avg);

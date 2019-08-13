@@ -39,9 +39,9 @@ int ah_node_init( t_node * node, int ni )
  * @param node pointer to node structure
  * @param act pointer to activation function
  */
-void ah_node_prediction( t_node * node, float (*act)(float)  )
+void ah_node_prediction( t_node * node, AH_NN_T (*act)(AH_NN_T)  )
 {
-	for ( int i = 0; i < node->_ni; i++ )
+	for ( int i = 0; i < node->_ni; i+=1 )
 	{
 		node->_o = node->_o + (node->_w[i]*node->_x[i]);
 	}
@@ -54,9 +54,9 @@ void ah_node_prediction( t_node * node, float (*act)(float)  )
  * @param node pointer to node structure
  * @param inputs input vector
  */
-void ah_node_set_input( t_node * node, float inputs[] )
+void ah_node_set_input( t_node * node, AH_NN_T * inputs )
 {
-	memcpy(node->_x,inputs,sizeof(float)*node->_ni);
+	memcpy(node->_x,inputs,sizeof(AH_NN_T)*node->_ni);
 }
 
 /*
@@ -64,9 +64,9 @@ void ah_node_set_input( t_node * node, float inputs[] )
  * @param node pointer to node structure
  * @param weight weight vector
  */
-void ah_node_set_weight( t_node * node, float * weight )
+void ah_node_set_weight( t_node * node, AH_NN_T * weight )
 {
-	memcpy(node->_w,weight,sizeof(float)*node->_ni);
+	memcpy(node->_w,weight,sizeof(AH_NN_T)*node->_ni);
 }
 
 /*
@@ -74,7 +74,7 @@ void ah_node_set_weight( t_node * node, float * weight )
  * @param node pointer to node structure
  * @param bias value
  */
-void ah_node_set_bias( t_node * node, float bias )
+void ah_node_set_bias( t_node * node, AH_NN_T bias )
 {
 	node->_b = bias;
 }
@@ -84,7 +84,7 @@ void ah_node_set_bias( t_node * node, float bias )
  * @param node pointer to node structure
  * @return calculated output
  */
-float ah_node_get_output( t_node * node  )
+AH_NN_T ah_node_get_output( t_node * node  )
 {
 	return node->_o;
 }

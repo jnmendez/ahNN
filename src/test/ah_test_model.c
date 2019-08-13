@@ -5,28 +5,28 @@
 
 #define MAX_INPUT_TEST	21
 
-float modelInput[MAX_INPUT_TEST][2] = {
-		{-5.0, (float)0.006692851},
-		{-4.5, (float)0.010986943},
-		{-4.0, (float)0.017986210},
-		{-3.5, (float)0.029312231},
-		{-3.0, (float)0.047425873},
-		{-2.5, (float)0.075858180},
-		{-2.0, (float)0.119202922},
-		{-1.5, (float)0.182425524},
-		{-1.0, (float)0.268941421},
-		{-0.5, (float)0.377540669},
-		{ 0.0, (float)0.500000000},
-		{ 0.5, (float)0.622459331},
-		{ 1.0, (float)0.731058579},
-		{ 1.5, (float)0.817574476},
-		{ 2.0, (float)0.880797078},
-		{ 2.5, (float)0.924141820},
-		{ 3.0, (float)0.952574127},
-		{ 3.5, (float)0.970687769},
-		{ 4.0, (float)0.982013790},
-		{ 4.5, (float)0.989013057},
-		{ 5.0, (float)0.993307149}
+AH_NN_T modelInput[MAX_INPUT_TEST][2] = {
+		{-5.0, (AH_NN_T)0.006692851},
+		{-4.5, (AH_NN_T)0.010986943},
+		{-4.0, (AH_NN_T)0.017986210},
+		{-3.5, (AH_NN_T)0.029312231},
+		{-3.0, (AH_NN_T)0.047425873},
+		{-2.5, (AH_NN_T)0.075858180},
+		{-2.0, (AH_NN_T)0.119202922},
+		{-1.5, (AH_NN_T)0.182425524},
+		{-1.0, (AH_NN_T)0.268941421},
+		{-0.5, (AH_NN_T)0.377540669},
+		{ 0.0, (AH_NN_T)0.500000000},
+		{ 0.5, (AH_NN_T)0.622459331},
+		{ 1.0, (AH_NN_T)0.731058579},
+		{ 1.5, (AH_NN_T)0.817574476},
+		{ 2.0, (AH_NN_T)0.880797078},
+		{ 2.5, (AH_NN_T)0.924141820},
+		{ 3.0, (AH_NN_T)0.952574127},
+		{ 3.5, (AH_NN_T)0.970687769},
+		{ 4.0, (AH_NN_T)0.982013790},
+		{ 4.5, (AH_NN_T)0.989013057},
+		{ 5.0, (AH_NN_T)0.993307149}
 };
 
 t_model test_model;
@@ -86,23 +86,23 @@ void model_T2( void )
 	// W1 (0,0): 0.725246, 0.777699,
     //    (1,0): -0.22734, 0.050874
 
-	float input2[2] 	= {(float)0.39232655,  (float)-1.02954193};
+	AH_NN_T input2[2] 	= {(AH_NN_T)0.39232655,  (AH_NN_T)-1.02954193};
 
-	float weight1[4] = {(float)0.725246,
-						(float)-0.22734,
-						(float)0.777699,
-						(float)0.050874};
+	AH_NN_T weight1[4] = {(AH_NN_T)0.725246,
+						(AH_NN_T)-0.22734,
+						(AH_NN_T)0.777699,
+						(AH_NN_T)0.050874};
 
-	float weight2[4] = {(float)0.125651,
-						(float)0.664594,
-						(float)-0.331226,
-						(float)-1.113510};
+	AH_NN_T weight2[4] = {(AH_NN_T)0.125651,
+						(AH_NN_T)0.664594,
+						(AH_NN_T)-0.331226,
+						(AH_NN_T)-1.113510};
 
 
-	float bias1[2] 		= {(float)-0.183314, (float)-0.209205};
-	float bias2[2] 		= {(float)-0.333418, (float)-0.309407};
+	AH_NN_T bias1[2] 		= {(AH_NN_T)-0.183314, (AH_NN_T)-0.209205};
+	AH_NN_T bias2[2] 		= {(AH_NN_T)-0.333418, (AH_NN_T)-0.309407};
 
-	float output2[2]	= {(float)0.0, (float)0.0};
+	AH_NN_T output2[2]	= {(AH_NN_T)0.0, (AH_NN_T)0.0};
 
 
 	ah_model_init( model );
@@ -122,6 +122,7 @@ void model_T2( void )
 #endif
 	/* here, do your time-consuming job */
 	ah_model_prediction( model, input2, output2 );
+	printf("%f\n",output2[0]);
 #ifdef _TIME_GPC_
 	computeEnd();
 	printf("PRINT TIME %llu micros\n", avg);

@@ -16,7 +16,7 @@
  * @param act pointer to activation fucntion
  * @return 1 in case of error
  */
-int ah_layer_init( t_layer * ly, int id, int nn, int ni, float (*act)(float) )
+int ah_layer_init( t_layer * ly, int id, int nn, int ni, AH_NN_T (*act)(AH_NN_T) )
 {
 	int errVal = 1;
 	if (( nn > 0 ) && ( nn <= MAX_NODE ))
@@ -51,7 +51,7 @@ void ah_layer_prediction( t_layer * ly )
  * @param ly pointer to layer structure
  * @param inputs input vector
  */
-void ah_layer_set_input( t_layer * ly, float inputs[] )
+void ah_layer_set_input( t_layer * ly, AH_NN_T * inputs )
 {
 	for ( int i = 0; i < ly->_nn; i++ )
 	{
@@ -64,7 +64,7 @@ void ah_layer_set_input( t_layer * ly, float inputs[] )
  * @param ly pointer to layer structure 
  * @param weight weight vector
  */
-void ah_layer_set_weight( t_layer * ly, float * weight )
+void ah_layer_set_weight( t_layer * ly, AH_NN_T * weight )
 {
 	for ( int i = 0; i < ly->_nn; i++ )
 	{
@@ -78,7 +78,7 @@ void ah_layer_set_weight( t_layer * ly, float * weight )
  * @param ly pointer to layer structure 
  * @param bias bias vector
  */
-void ah_layer_set_bias( t_layer * ly, float bias[] )
+void ah_layer_set_bias( t_layer * ly, AH_NN_T * bias )
 {
 	for ( int i = 0; i < ly->_nn; i++ )
 	{
@@ -91,7 +91,7 @@ void ah_layer_set_bias( t_layer * ly, float bias[] )
  * @param ly pointer to layer structure
  * @param output output vector
  */
-void ah_layer_get_output( t_layer * ly, float output[] )
+void ah_layer_get_output( t_layer * ly, AH_NN_T * output )
 {
 	for ( int i = 0; i < ly->_nn; i++ )
 	{

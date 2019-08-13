@@ -21,7 +21,7 @@ typedef struct
 	int _nn;					/**< NUMBER OF NODES 	*/
 	int _ni;					/**< NUMBER OF INPUTS 	*/
 	t_node _node[MAX_NODE];		/**< MAX NUM NODES		*/
-	float (*_act)(float);		/**< ACT FUNCTION		*/
+	AH_NN_T (*_act)(AH_NN_T);		/**< ACT FUNCTION		*/
 }t_layer;
 
 /**
@@ -33,7 +33,7 @@ typedef struct
  * @param act pointer to activation fucntion
  * @return 1 in case of error
  */
-int ah_layer_init( t_layer * ly, int id, int nn, int ni, float (*act)(float) );
+int ah_layer_init( t_layer * ly, int id, int nn, int ni, AH_NN_T (*act)(AH_NN_T) );
 
 /**
  * \brief Calculate prediction for the layer
@@ -46,28 +46,28 @@ void ah_layer_prediction( t_layer * ly );
  * @param ly pointer to layer structure
  * @param inputs input vector
  */
-void ah_layer_set_input( t_layer * ly, float inputs[] );
+void ah_layer_set_input( t_layer * ly, AH_NN_T * inputs );
 
 /**
  * \brief set layer weight
  * @param ly pointer to layer structure 
  * @param weight weight vector
  */
-void ah_layer_set_weight( t_layer * ly, float * weight );
+void ah_layer_set_weight( t_layer * ly, AH_NN_T * weight );
 
 /**
  * \brief set layer bias
  * @param ly pointer to layer structure 
  * @param bias bias vector
  */
-void ah_layer_set_bias( t_layer * ly, float bias[] );
+void ah_layer_set_bias( t_layer * ly, AH_NN_T * bias );
 
 /**
  * \brief get layer output
  * @param ly pointer to layer structure
  * @param output output vector
  */
-void ah_layer_get_output( t_layer * ly, float output[] );
+void ah_layer_get_output( t_layer * ly, AH_NN_T * output );
 
 
 #endif /* AH_LAYER_H_ */

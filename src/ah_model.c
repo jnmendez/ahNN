@@ -26,7 +26,7 @@ int ah_model_init( t_model * mod )
  * @param act pointer to activation function.
  * @return 1 in case of error
  */
-int ah_model_add_input_layer ( t_model * model, int nn, int ni, float (*act)(float) )
+int ah_model_add_input_layer ( t_model * model, int nn, int ni, AH_NN_T (*act)(AH_NN_T) )
 {
 	int errVal = 1;
 	if ( model->_nl < MAX_LAYERS )
@@ -45,7 +45,7 @@ int ah_model_add_input_layer ( t_model * model, int nn, int ni, float (*act)(flo
  * @param act pointer to activation function.
  * @return 1 in case of error
  */
-int ah_model_add_layer ( t_model * model, int nn, float (*act)(float)  )
+int ah_model_add_layer ( t_model * model, int nn, AH_NN_T (*act)(AH_NN_T)  )
 {
 	int errVal = 1;
 	if ( model->_nl < MAX_LAYERS )
@@ -63,7 +63,7 @@ int ah_model_add_layer ( t_model * model, int nn, float (*act)(float)  )
  * @param in input data vector
  * @param out calculated predictions.vector 
  */
-void ah_model_prediction( t_model * model, float in[], float out[] )
+void ah_model_prediction( t_model * model, AH_NN_T * in, AH_NN_T * out )
 {
 	/* In is the input for the first layer.   */
 	/* Out is the output for last layer       */
@@ -94,7 +94,7 @@ void ah_model_prediction( t_model * model, float in[], float out[] )
  * @param weight weight vector
  * @return
  */
-int ah_model_set_weight( t_model * model, int ly ,float * weight)
+int ah_model_set_weight( t_model * model, int ly ,AH_NN_T * weight)
 {
 	ah_layer_set_weight(&model->_layer[ly], weight);
 	return 0;
@@ -107,7 +107,7 @@ int ah_model_set_weight( t_model * model, int ly ,float * weight)
  * @param bias bias vector
  * @return
  */
-int ah_model_set_bias( t_model * model, int ly ,float bias[])
+int ah_model_set_bias( t_model * model, int ly ,AH_NN_T * bias)
 {
 	ah_layer_set_bias(&model->_layer[ly], bias);
 	return 0;

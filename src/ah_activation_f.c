@@ -6,10 +6,10 @@
  * @param x input data
  * @return output data
  */
-float ah_sigmoid( float x )
+AH_NN_T ah_sigmoid( AH_NN_T x )
 {
-	 float exp_value;
-	 float return_value;
+	 AH_NN_T exp_value;
+	 AH_NN_T return_value;
 
 	 /*** Exponential calculation ***/
 	 exp_value = exp((double)-x);
@@ -24,10 +24,10 @@ float ah_sigmoid( float x )
  * @param x input data
  * @return output data
  */
-float ah_softplus( float x )
+AH_NN_T ah_softplus( AH_NN_T x )
 {
-	 float exp_value;
-	 float return_value;
+	 AH_NN_T exp_value;
+	 AH_NN_T return_value;
 
 	 /*** Exponential calculation ***/
 	 exp_value = exp((double)x);
@@ -43,10 +43,10 @@ float ah_softplus( float x )
  * @param x input data
  * @return output data
  */
-float ah_tanh( float x )
+AH_NN_T ah_tanh( AH_NN_T x )
 {
-	 float exp_value;
-	 float return_value;
+	 AH_NN_T exp_value;
+	 AH_NN_T return_value;
 
 	 /*** Exponential calculation ***/
 	 exp_value = exp((double)-2*x);
@@ -62,7 +62,7 @@ float ah_tanh( float x )
  * @param x input data
  * @return output data
  */
-float ah_linear( float x )
+AH_NN_T ah_linear( AH_NN_T x )
 {
 	 return x;
 }

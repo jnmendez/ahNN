@@ -38,9 +38,9 @@ int main(void) {
 	/*
 	int re;
 
-	float outData[3];
-	float inData[4] = {1.0,2.0,3.0,4.0};
-	float wData[4] 	= {0.1,0.2,0.3,0.4};
+	AH_NN_T outData[3];
+	AH_NN_T inData[4] = {1.0,2.0,3.0,4.0};
+	AH_NN_T wData[4] 	= {0.1,0.2,0.3,0.4};
 
 
 	re = ah_model_init( myModel );
@@ -71,8 +71,8 @@ int main(void) {
 	layer_T2();
 	layer_T3();
 	layer_T4();
-	model_T1();*/
-	/*model_T2();*/
+	model_T1();
+	model_T2();*/
 	_el_init_model();
 	return 0;
 }

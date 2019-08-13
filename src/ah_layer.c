@@ -42,7 +42,7 @@ void ah_layer_prediction( t_layer * ly )
 {
 	for ( int i = 0; i < ly->_nn; i++ )
 	{
-		ah_node_prediction( &ly->_node[i], ly->_act );
+		ly->_lo[i] = ah_node_prediction( &ly->_node[i], ly->_act );
 	}
 }
 

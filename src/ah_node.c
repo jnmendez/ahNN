@@ -39,13 +39,14 @@ int ah_node_init( t_node * node, int ni )
  * @param node pointer to node structure
  * @param act pointer to activation function
  */
-void ah_node_prediction( t_node * node, AH_NN_T (*act)(AH_NN_T)  )
+AH_NN_T ah_node_prediction( t_node * node, AH_NN_T (*act)(AH_NN_T)  )
 {
 	for ( int i = 0; i < node->_ni; i+=1 )
 	{
 		node->_o = node->_o + (node->_w[i]*node->_x[i]);
 	}
 	node->_o = act( node->_o + node->_b );
+	return node->_o;
 }
 
 

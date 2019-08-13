@@ -21,7 +21,8 @@ typedef struct
 	int _nn;					/**< NUMBER OF NODES 	*/
 	int _ni;					/**< NUMBER OF INPUTS 	*/
 	t_node _node[MAX_NODE];		/**< MAX NUM NODES		*/
-	AH_NN_T (*_act)(AH_NN_T);		/**< ACT FUNCTION		*/
+	AH_NN_T (*_act)(AH_NN_T);	/**< ACT FUNCTION		*/
+	AH_NN_T _lo[MAX_NODE];		/**< LAYER OUTPUT VECTOR*/
 }t_layer;
 
 /**

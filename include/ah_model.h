@@ -20,7 +20,7 @@ typedef struct
 {
 	int 	_nl;					/**< NUMBER OF LAYERS 	*/
 	t_layer _layer[MAX_LAYERS];		/**< MAX NUM LAYERS		*/
-	AH_NN_T 	_transfer[MAX_NODE];
+	AH_NN_T _transfer[MAX_NODE];
 }t_model;
 
 /**

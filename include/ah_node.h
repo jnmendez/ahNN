@@ -12,7 +12,7 @@ typedef struct
 	AH_NN_T _w[MAX_NODE];			/**< WEIGHT VECTOR 	*/
 	AH_NN_T _o;						/**< OUTPUT 		*/
 	AH_NN_T _b;						/**< BIAS			*/
-	int   _ni;						/**< NUM INPUTS 	*/
+	int     _ni;					/**< NUM INPUTS 	*/
 
 }t_node;
 
@@ -29,7 +29,7 @@ int ah_node_init( t_node * node, int ni );
  * @param node pointer to node structure
  * @param act pointer to activation function
  */
-void ah_node_prediction( t_node * node, AH_NN_T (*act)(AH_NN_T)  );
+AH_NN_T ah_node_prediction( t_node * node, AH_NN_T (*act)(AH_NN_T)  );
 
 /**
  * \brief set node inputs

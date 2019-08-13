@@ -76,7 +76,6 @@ void ah_model_prediction( t_model * model, AH_NN_T * in, AH_NN_T * out )
 
 	for ( int i = 1; i < numLayers; i++ )
 	{
-		/*ah_layer_get_output	(&model->_layer[i-1],model->_transfer);*/
 		ah_layer_set_input	( &model->_layer[i], &model->_layer[i-1]._lo[0] );
 		ah_layer_prediction	( &model->_layer[i] );
 	}

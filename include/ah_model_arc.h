@@ -18,6 +18,6 @@
 #define MAX_INPUT	15
 
 /** Internal type */
-#define AH_NN_T	double
+#define AH_NN_T	float
 
 #endif

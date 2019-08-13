@@ -40,9 +40,12 @@ int ah_layer_init( t_layer * ly, int id, int nn, int ni, AH_NN_T (*act)(AH_NN_T)
  */
 void ah_layer_prediction( t_layer * ly )
 {
+	AH_NN_T * plo = &ly->_lo[0];
+	t_node  * pni = &ly->_node[0];
+
 	for ( int i = 0; i < ly->_nn; i++ )
 	{
-		ly->_lo[i] = ah_node_prediction( &ly->_node[i], ly->_act );
+		*plo++ = ah_node_prediction( pni++, ly->_act );
 	}
 }
 
@@ -53,9 +56,11 @@ void ah_layer_prediction( t_layer * ly )
  */
 void ah_layer_set_input( t_layer * ly, AH_NN_T * inputs )
 {
+	t_node  * pni = &ly->_node[0];
+
 	for ( int i = 0; i < ly->_nn; i++ )
 	{
-		ah_node_set_input( &ly->_node[i], inputs );
+		ah_node_set_input( pni++, inputs );
 	}
 }
 

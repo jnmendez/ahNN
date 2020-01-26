@@ -65,6 +65,7 @@ void _el_init_model( void )
      readStart();
 #endif
      /* here, do your time-consuming job */
+ 	/*for ( int i = 0; i < 1000000; i++ )*/
      ah_model_prediction( _el_model, input_el_model, output_el_model );
      printf("output_el_model : %f %f\n",output_el_model[0],0.07364398);
 #ifdef _TIME_GPC_

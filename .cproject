@@ -69,6 +69,10 @@
                                     								
                                 </option>
                                 								
+                                <option id="gnu.c.compiler.option.debugging.codecov.909390164" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.c.compiler.option.debugging.codecov" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+                                								
+                                <option id="gnu.c.compiler.option.debugging.gprof.246871826" superClass="gnu.c.compiler.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+                                								
                                 <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1728605092" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
                                 							
                             </tool>
@@ -80,6 +84,8 @@
                                     <listOptionValue builtIn="false" value="m"/>
                                     								
                                 </option>
+                                								
+                                <option id="gnu.c.link.option.debugging.codecov.1282816425" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.c.link.option.debugging.codecov" value="true" valueType="boolean"/>
                                 								
                                 <inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1508204744" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
                                     									
@@ -176,6 +182,8 @@
                                     <listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/include}&quot;"/>
                                     								
                                 </option>
+                                								
+                                <option id="gnu.c.compiler.option.debugging.codecov.1239272641" superClass="gnu.c.compiler.option.debugging.codecov" useByScannerDiscovery="false" value="true" valueType="boolean"/>
                                 								
                                 <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1125023111" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
                                 							
